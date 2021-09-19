@@ -20,14 +20,12 @@ io.on('connection', (socket) => {
     console.log('User diconnected');
   });
 
-  socket.emit('newEmail', {
-    from: 'Dropfire',
-    text: 'With the best, Dropfire',
-    createdAt: Date.now(),
-  });
-
-  socket.on('createEmail', (newEmail) => {
-    console.log(newEmail);
+  socket.on('createMessage', (message) => {
+    console.log('createMessage', message);
+    io.emit('newMessage', {
+      ...message,
+      createdAt: new Date().getTime(),
+    });
   });
 });
 
