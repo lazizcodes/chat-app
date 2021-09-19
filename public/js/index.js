@@ -6,6 +6,10 @@ socket.on('connect', () => {
   socket.on('newMessage', (message) => {
     console.log('newMessage', message);
   });
+
+  socket.on('join', () => {
+    console.log('New User joined index');
+  });
 });
 
 socket.on('disconnect', () => {

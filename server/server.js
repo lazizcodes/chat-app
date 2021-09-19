@@ -20,12 +20,28 @@ io.on('connection', (socket) => {
     console.log('User diconnected');
   });
 
+  socket.emit('newMessage', {
+    from: 'Admin',
+    text: 'Welcome to che chat app',
+    createdAt: new Date().getTime(),
+  });
+
+  socket.broadcast.emit('newMessage', {
+    from: 'Admin',
+    text: 'New user joined',
+    createdAt: new Date().getTime(),
+  });
+
   socket.on('createMessage', (message) => {
     console.log('createMessage', message);
     io.emit('newMessage', {
       ...message,
       createdAt: new Date().getTime(),
     });
+    // socket.broadcast.emit('newMessage', {
+    //   ...message,
+    //   createdAt: new Date().getTime(),
+    // });
   });
 });
 
