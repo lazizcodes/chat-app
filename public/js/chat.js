@@ -64,13 +64,16 @@ socket.on('newLocationMessage', function (message) {
   jQuery('#messages').append(html);
 
   scrollToBottom();
-  // const li = jQuery('<li></li>');
-  // const a = jQuery('<a target="_blank">My current location</a>');
+});
 
-  // li.text(`${message.from}: `);
-  // a.attr('href', message.url);
-  // li.append(a);
-  // jQuery('#messages').append(li);
+socket.on('updateUserList', function (users) {
+  const ol = jQuery('<ol></ol>');
+
+  users.forEach(function (user) {
+    ol.append(jQuery('<li></li>').text(user));
+  });
+
+  jQuery('#users').html(ol);
 });
 
 socket.on('disconnect', () => {
