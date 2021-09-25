@@ -13,6 +13,7 @@ jobs:
     env:
       REPO_NAME: ${{ github.event.repository.name }}
       APP_PORT: 3000
+      APP_CONTAINER: chat-app
     steps:
       - uses: actions/checkout@v2
       - name: Docker login
@@ -38,6 +39,8 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           envs: APP_PORT,REPO_NAME
           script: |
-            sleep 10s; docker run --rm --name chat-app -p $APP_PORT:3000 -d --restart unless-stopped awesomelike/$REPO_NAME:${{ github.sha }}
+            sleep 10s;
+            docker rm -f $APP_CONTAINER
+            docker run --name $APP_CONTAINER -p $APP_PORT:3000 -d --restart unless-stopped awesomelike/$REPO_NAME:${{ github.sha }}
   
   
