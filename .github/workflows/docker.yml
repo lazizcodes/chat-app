@@ -36,6 +36,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
+          envs: APP_PORT,REPO_NAME
           script: |
             sleep 10s; docker run --name chat-app -p $APP_PORT:3000 -d --restart unless-stopped awesomelike/$REPO_NAME:${{ github.sha }}
   
