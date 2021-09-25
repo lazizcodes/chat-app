@@ -37,7 +37,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
-          envs: APP_PORT,REPO_NAME
+          envs: APP_PORT,REPO_NAME,APP_CONTAINER
           script: |
             sleep 10s;
             docker rm -f $APP_CONTAINER
