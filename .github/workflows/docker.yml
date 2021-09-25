@@ -41,6 +41,7 @@ jobs:
           script: |
             sleep 10s;
             docker rm -f $APP_CONTAINER
+            (docker rmi $(docker images | grep '$APP_CONTAINER')) || true
             docker run --name $APP_CONTAINER -p $APP_PORT:3000 -d --restart unless-stopped awesomelike/$REPO_NAME:${{ github.sha }}
   
   
