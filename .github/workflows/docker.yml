@@ -1,0 +1,44 @@
+name: Build the Docker image and push to the Docker Hub
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      REPO_NAME: ${{ github.event.repository.name }}
+      IMAGE_TAG_NAME: $REPO_NAME:${{ github.sha }}
+      PORT: 3000
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker login
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        
+      - name: Build the image
+        run: |
+          docker build -t awesomelike/$IMAGE_TAG_NAME .
+      
+      - name: Push the image to the registry
+        run: |
+          docker push awesomelike/$IMAGE_TAG_NAME
+      
+      - name: Deploy the app
+        uses: appleboy/ssh-action@v0.1.2
+        with: 
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sleep 10s; docker run --name chat-app -p $PORT:3000 -d --restart unless-stopped awesomelike/$IMAGE_TAG_NAME
+  
+  
