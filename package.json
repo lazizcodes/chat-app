@@ -16,10 +16,10 @@
     "express": "^4.17.1",
     "moment": "^2.29.1",
     "mustache": "^4.2.0",
-    "nodemon": "^2.0.12",
     "socket.io": "^4.2.0"
   },
   "devDependencies": {
+    "nodemon": "^2.0.12",
     "expect": "^27.2.0",
     "mocha": "^9.1.1"
   }
