@@ -21,6 +21,17 @@ function scrollToBottom() {
 socket.on('connect', () => {
   console.log('Connected to server');
 
+  const params = jQuery.deparam(window.location.search);
+
+  socket.emit('join', params, function (err) {
+    if (err) {
+      alert(err);
+      window.location.href = '/';
+    } else {
+      console.log('No errors.');
+    }
+  });
+
   socket.on('newMessage', (message) => {
     const formattedTime = moment(message.createdAt).format('h:mm a');
     const template = jQuery('#message-template').html();
