@@ -1,6 +1,6 @@
 ># ShutApp
 
-**ShutApp** is a real-time chat application that is still being developed futher.
+**ShutApp** is a real-time chat application that is still being developed further.
 
 **Technologies used so far:**
 - node.js
