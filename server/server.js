@@ -36,7 +36,6 @@ io.on('connection', (socket) => {
     if (!isRealString(params.name) || !isRealString(params.room)) {
       return callback('Please, enter a valid name and room name.');
     }
-
     socket.join(params.room);
     users.removeUser(socket.id);
     users.addUser(socket.id, params.name, params.room);
