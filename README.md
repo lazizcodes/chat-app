@@ -20,4 +20,4 @@
 Next up, I am going add an authentication to join a room and connect a database (MongoDB) 
 to this application.
 
->>Try the demo at [ShutApp](https://shutapp.laziz.abdullaev.dev/)
+>Try the demo at [ShutApp](https://shutapp.laziz.abdullaev.dev/)
