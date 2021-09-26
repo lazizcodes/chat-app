@@ -1,8 +1,8 @@
-# ShutApp
-
->**ShutApp** is a real-time chat app that is still being developed.
+># ShutApp
 >
->Technologies used so far:
+>**ShutApp** is a real-time chat application that is still being developed futher.
+>
+>**Technologies used so far:**
 >- node.js
 >- socket.io
 >- jQuery
@@ -10,5 +10,5 @@
 >- GitHub Actions
 >- HTML
 >- CSS
-
-Next up, I am going to connect a database (MongoDB) to this application.
+>
+>Next up, I am going to connect a database (MongoDB) to this application.
