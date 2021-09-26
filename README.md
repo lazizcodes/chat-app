@@ -1,8 +1,9 @@
 # ShutApp
 
 >**ShutApp** is a real-time chat application that is still being developed further.
->In this application, users can join a room by entering their names and the room name
->that they want to join and chat with other users in the same room privately.
+>
+>In this application, users can join a room by entering their _names_ and the _room name_
+>that they want to join. Users in the same room can chat with each other privately.
 
 **Technologies used so far:**
 - node.js
