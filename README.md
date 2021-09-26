@@ -4,6 +4,7 @@
 
 **Technologies used so far:**
 - node.js
+- express.js
 - socket.io
 - jQuery
 - mustache.js
