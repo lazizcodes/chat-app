@@ -9,9 +9,9 @@
 **Technologies used so far:**
 - node.js
 - express.js
+- mustache.js
 - socket.io
 - jQuery
-- mustache.js
 - Docker
 - GitHub Actions
 - HTML
