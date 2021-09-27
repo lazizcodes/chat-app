@@ -1,6 +1,6 @@
 # ShutApp
 
->**ShutApp** is a real-time chat application that is still being developed further.
+>**ShutApp** is a real-time chat application that is being developed further.
 >
 >In this application, users can join a room by entering their _names_ and the _room name_
 >that they want to join.   
